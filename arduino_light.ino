@@ -1,6 +1,6 @@
-/** 
-  Arduino Light Dependent Resister (LDR) Sensor Node
-**/
+//
+// arduino_light.ino
+// Description: Arduino Light Dependent Resister (LDR) Sensor Node
 
 const int ledPin = 13;
 const int sensorPin = 0;
@@ -12,7 +12,7 @@ void setup() {
 void loop() {
   int rate = analogRead(sensorPin);
   digitalWrite(ledPin, HIGH);
-  
+
   delay(rate);
   digitalWrite(ledPin, LOW);
   delay(rate);
