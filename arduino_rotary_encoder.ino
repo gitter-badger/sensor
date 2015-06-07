@@ -1,6 +1,6 @@
-/** 
-  Arduino Rotary Encoder Sensor Node
-**/
+//
+// arduino_rotary_encoder.ino
+// Description: Arduino Rotary Encoder
 
 const int encoderPinA = 4;
 const int encoderpinB = 2;
@@ -29,8 +29,8 @@ void loop() {
     } else {
       encoderPos++;
     }
-   
-    angle = (encoderPos % encoderStepsPerRevolution) * 360 / encoderStepsPerRevolution; 
+
+    angle = (encoderPos % encoderStepsPerRevolution) * 360 / encoderStepsPerRevolution;
     Serial.print(encoderPos);
     Serial.print(" ");
     Serial.println(angle);

@@ -1,6 +1,6 @@
-/**
-  Arduino Shaken Sensor Node
-**/
+//
+// arduino_shaken.ino
+// Description: Arduino Shaken
 
 const int tiltSensorPin = 2;
 const int ledPin = 13;

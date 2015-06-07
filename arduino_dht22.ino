@@ -1,6 +1,6 @@
-/** 
-  Sensor Data Node using Arduino DHT22 Sensor and Ethernet to MySQL
-**/
+//
+// arduino_dth22.ino
+// Description: Data Node using Arduino DHT22 Sensor and Ethernet to MySQL
 
 #include <SPI.h>
 #include <Ethernet.h>

@@ -1,6 +1,6 @@
-/** 
-  Arduino Microphone Sensor Node
-**/
+//
+// arduino_microphone.ino
+// Description: Arduino Microphone
 
 const int ledPin = 13;
 const int middleValue = 512;

@@ -1,6 +1,6 @@
-/** 
-  Arduino Temperature Sensor Node with trigger on threshold 
-**/
+//
+// arduino_temp_threshold.ino
+// Description:  Arduino Temperature Sensor Node with trigger on threshold
 
 const int inPin = 0;
 const int outPin = 13;

@@ -1,6 +1,6 @@
-/**
-  Arduino Seismometer Sensor Node using KXM52
-**/
+//
+// arduino_seismometer_kxm52.ino
+// Description: Arduino Seismometer using KXM52
 
 int Xaxis_pin = 3;
 int Yaxis_pin = 4;

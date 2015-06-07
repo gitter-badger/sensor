@@ -1,6 +1,6 @@
-/** 
-  Arduino Piezo Sensor Node (vibration) 
-**/
+//
+// arduino_vibration.ino
+// Description: Arduino Piezo Sensor Node (vibration)
 
 const int sensorPin = 0;
 const int ledPin = 13;

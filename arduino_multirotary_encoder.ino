@@ -1,6 +1,6 @@
-/** 
-  Arduino Multi Rotary Encoder Sensor Node
-**/
+//
+// arduino_multirotary_encoder.ino
+// Description: Arduino Multi Rotary Encoder Sensor Node
 
 const int ENCODERS = 2;
 const int encoderPinA[ENCODERS] = {2,4};

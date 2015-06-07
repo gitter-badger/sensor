@@ -1,4 +1,8 @@
-#<include <AFMotor.h>
+//
+// arduino_curtain_automation.ino
+// Description:
+
+#include <AFMotor.h>
 
 #define LIGHT_PIN 0
 #define LIGHT_THRESHOLD 800
@@ -41,14 +45,14 @@ void loop() {
   Serial.print("Photocell value = ");
   Serial.println(light_status);
   Serial.println("");
- 
+
   int temp_reading = analogRead(TEMP_PIN);
   delay(500);
 
   float voltage = temp_reading * TEMP_VOLTAGE / 1024.0;
   float temp_Celsius = (voltage - 8.5) * 100;
   float temp_Fahrenheit = (temp_Celsius * 9 / 5) + 32;
-  
+
   Serial.print("Temperature value (Celsius)= ");
   Serial.println(temp_Celsius);
   Serial.print("Temperature value (Fahrenheit) = ");
@@ -66,14 +70,14 @@ void loop() {
   } else {
     warm = false;
   }
- 
+
   case 0:
     if (daylight && !warm) {
       curtain_state = 1;
       Curtain(curtain_state);
     }
     break;
-  
+
   case 1:
     if (!daylight || warm) {
       curtain_state = 0;
@@ -82,6 +86,3 @@ void loop() {
     break;
   }
 }
-}
-
-

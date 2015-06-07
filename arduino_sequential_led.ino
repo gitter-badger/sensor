@@ -1,6 +1,6 @@
-/** 
-  Arduino Sequential LED Switcher 
-**/
+//
+// arduino_sequential_led.ino
+// Description: Arduino Sequential LED Switcher
 
 byte ledPin[] = {2, 3, 4, 5, 6, 7, 8, 9};
 int ledDelay;
@@ -18,7 +18,7 @@ void setup() {
 
 void loop() {
   ledDelay = analogRead(potPin)
-  
+
   if ((millis() - changeTime) > ledDelay) {
     changeLED();
     changeTime = millis();
@@ -33,12 +33,12 @@ void changeLED() {
 
   curentLED += direction
 
-  if (currentLED == 9) { 
+  if (currentLED == 9) {
     direction = -1;
   }
   if (currentLED == 0) {
     direction = 1;
   }
 }
- 
+
 

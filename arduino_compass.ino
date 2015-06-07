@@ -1,6 +1,6 @@
-/**
-  Arduino Compass Sensor Node HM55B
-**/
+//
+// arduino_compass.ino
+// Description:  Arduino Compass Sensor Node HM55B
 
 const int enablePin = 2;
 const int clockPin = 3;
@@ -77,7 +77,7 @@ void serialOut(int value,  int numberOfBits) {
 
 int serialIn(int numberOfBits) {
   int result = 0;
-  
+
   pinMode(dataPin, INPUT);
   for (int i = numberOfBits; i > 0; i--) {
     digitalWrite(clockPin, HIGH);

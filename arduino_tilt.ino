@@ -1,6 +1,6 @@
-/**
-  Arduino Tilt Sensor Node
-**/
+//
+// arduino_tilt.ino
+// Description: Arduino Tilt Sensor Node
 
 const int tiltSensorPin = 2;
 const int firstLEDPin = 11;

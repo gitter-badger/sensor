@@ -1,6 +1,6 @@
-/**
-  Arduino RFID Reader Sensor Node
-**/
+//
+// arduino_rfid_reader.ino
+// Description: Arduino RFID Reader Sensor Node
 
 const int startByte = 10;
 const int endByte = 13;

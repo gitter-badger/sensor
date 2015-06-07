@@ -1,6 +1,6 @@
-/**
-  Arduino Seismometer Sensor Node using MMA7361 
-**/
+//
+// arduino_seismometer_mma7361.ino
+// Description: Arduino Seismometer using MMA7361
 
 int ST = 6;
 int GSEL = 7;

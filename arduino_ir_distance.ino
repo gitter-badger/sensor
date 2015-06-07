@@ -1,6 +1,6 @@
-/**
-  Arduino Infrared Sensor Node (distance)
-**/
+//
+// arduino_ir_distance.ino
+// Arduino Infrared Sensor Node (distance)
 
 const int ledPin = 13;
 const int sensorpin = 0;

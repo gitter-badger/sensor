@@ -1,6 +1,6 @@
-/** 
-  Arduino Temperature Sensor Node using LM35 
-**/
+//
+// arduino_temp_lm35.ino
+// Description: Arduino Temperature using LM35
 
 const int inPin = 0;
 
@@ -15,9 +15,9 @@ void loop() {
   float celsius = millivolts / 10;
   Serial.print(celsius);
   Serial.print(" degrees Celsius, ");
-  
+
   Serial.print( (celsius * 9)/ 5 + 32);
   Serial.println(" degrees Fahrenheit");
- 
+
   delay(1000);
 }

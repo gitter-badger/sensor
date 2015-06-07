@@ -1,6 +1,6 @@
-/**
-  Arduino Parallax PING Sensor Node (distance)
-**/
+//
+// arduino_parralax.ino
+// Description: Arduino Parallax PING Sensor Node (distance)
 
 const int pingPin = 5;
 const int ledPin = 13;
@@ -21,7 +21,7 @@ void loop() {
 
 int ping(int pingPin) {
   long duration, cm;
-  
+
   pinMode(pingPin, OUTPUT);
   digitalWrite(pingPin, LOW);
   delayMicroseconds(2);

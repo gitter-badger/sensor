@@ -1,6 +1,6 @@
-/** 
-  Arduino Rotary Encoder Sensor Node with Interrupts
-**/
+//
+// arduino_rotaryencoderinterrupt.ino
+// Description: Arduino Rotary Encoder with Interrupts
 
 const int encoderPinA = 2;
 const int encoderPinB = 4;
@@ -22,7 +22,7 @@ void loop() {
 
   cli();
   Pos = encoderPos;
-  SREG = oldSREG; 
+  SREG = oldSREG;
   if (Pos != oldPos) {
     Serial.println(Pos, DEC);
     oldPos = Pos;

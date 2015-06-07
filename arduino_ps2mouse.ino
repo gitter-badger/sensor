@@ -1,6 +1,6 @@
-/**
-  Arduino PS2 Mouse Sensor Node
-**/
+//
+// arduino_ps2mouse.ino
+// Description: Arduino PS2 Mouse Sensor Node
 
 #define WProgram.h Arduino.h
 #include <ps2.h>
@@ -40,16 +40,16 @@ void loop() {
   if (status & 2) {
     yPosition = 0;
   }
- 
+
   x = mouse.read();
   y = mouse.read();
   if (x!= 0 || y != 0) {
     xPosition = xPosition + x;
     xPosition = constrain(xPosition, -mouseRange, mouseRange);
-    
+
     xBrightness = map(xPosition, -mouseRange, mouseRange, 0, 255);
     analogWrite(xLedPin, xBrightness);
- 
+
     yPosition = constrain(yPosition + y, -mouseRange, mouseRange);
     yBrightness = map(yPosition, -mouseRange, mouseRange, 0, 255);
     analogWrite(yLedPen, yBrightness);
@@ -65,4 +65,4 @@ void mouseBegin() {
   mouse.write(0xf0);
   mouse.read();
   delayMicroseconds(100);
-} 
+}

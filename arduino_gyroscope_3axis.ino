@@ -1,6 +1,6 @@
-/**
-  Arduino 3-Axis Gyroscope ITG-3200
-**/
+//
+// arduino_gyroscope_3axis.ino
+// Description: Arduino 3-Axis Gyroscope ITG-3200
 
 #include <Wire.h>
 
@@ -30,7 +30,7 @@ void setup() {
 
 void loop() {
   int xRate, yRate, zRate;
-  
+
   xRate = readAxis(GYRO_X_ADDRESS);
   yRate = readAxis(GYRO_Y_ADDRESS);
   zRate = readAxis(GYRO_Z_ADDRESS);
