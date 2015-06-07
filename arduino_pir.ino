@@ -1,6 +1,6 @@
-/** 
-  Arduino Passive Infrared (PIR) Sensor Node
-**/
+//
+// arduino_pir.ino
+// Description: Arduino Passive Infrared (PIR) Sensor Node
 
 const int ledPin = 13
 const int inputPin = 2;
