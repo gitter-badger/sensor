@@ -13,7 +13,7 @@
 
 #include "pitches.h"
 
-const int threshold = 10;
+const int THRESHOLD = 10;
 
 int notes[] = {
   NOTE_A4, NOTE_B4, NOTE_C3
@@ -26,7 +26,7 @@ void loop() {
   for (int target_sensor = 0; target_sensor < 3; target_sensor++) {
     int sensor_out = analogRead(target_sensor);
 
-    if (sensor_out > threshold) {
+    if (sensor_out > THRESHOLD) {
       tone(8, notes[target_sensor], 20);
     }
   }

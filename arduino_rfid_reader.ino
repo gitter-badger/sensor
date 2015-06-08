@@ -2,33 +2,39 @@
 // arduino_rfid_reader.ino
 // Description: Arduino RFID Reader Sensor Node
 
-const int startByte = 10;
-const int endByte = 13;
-const int tagLength = 10;
-const int totalLength = tagLength + 2;
-char tag[tagLength + 1];
+const int RFID_PIN = 2
+const int START_BYTE   = 10;
+const int END_BYTE     = 13;
+const int TAG_LENGTH   = 10;
+const int TOTAL_LENGTH = TAG_LENGTH + 2;
 
+char tag[TAG_LENGTH + 1];
 int bytesread = 0;
 
 void setup() {
   Serial.begin(2400);
-  pinMode(2, OUTPUT);
-  digitalWrite(2, LOW);
+  pinMode(RFID_PIN, OUTPUT);
+  digitalWrite(RFID_PIN, LOW);
 }
 
 void loop() {
-  if (Serial.available() >= totalLength) {
-    if (Serial.read() == startByte) {
+  if (Serial.available() >= TOTAL_LENGTH) {
+    if (Serial.read() == START_BYTE) {
       bytesread = 0;
-      while (bytesread < tagLength) {
+
+      while (bytesread < TAG_LENGTH) {
         int val = Serial.read();
-        if ((val == startByte) || (val == endByte)) {
+
+        if ((val == START_BYTE) || (val == END_BYTE)) {
           break;
+
         tag[bytesread] = val;
-        bytesread = bytesread + 1;
+        bytesread      = bytesread + 1;
       }
-      if (Serial.read() == endByte) {
+
+      if (Serial.read() == END_BYTE) {
         tag[bytesread] = 0;
+
         Serial.print("RFID tag is: ");
         Serial.println(tag);
       }

@@ -2,22 +2,22 @@
 // arduino_statechange.ino
 // Description: Detect state change for digital input,
 
-const int buttonPin = 2;
-const int ledPin    = 13;
+const int BUTTON_PIN = 2;
+const int LED_PIN    = 13;
 
 int push_counter         = 0;
 int current_button_state = 0;
 int prev_button_state    = 0;
 
 void setup() {
-  pinMode(buttonPin, INPUT);
-  pinMode(ledPin, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
 
   Serial.begin(9600);
 }
 
 void loop() {
-  current_button_state = digitalRead(buttonPin);
+  current_button_state = digitalRead(BUTTON_PIN);
 
   if (button_state != prev_button_state) {
     if (button_state == HIGH) {
@@ -34,8 +34,8 @@ void loop() {
 
   // Turn on the LED every four button pushes
   if (push_counter % 4 == 0) {
-    digitalWrite(ledPin, HIGH);
+    digitalWrite(LED_PIN, HIGH);
   } else {
-    digitalWrite(ledPin, LOW);
+    digitalWrite(LED_PIN, LOW);
   }
 }

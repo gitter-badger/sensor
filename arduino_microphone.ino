@@ -2,39 +2,39 @@
 // arduino_microphone.ino
 // Description: Arduino Microphone
 
-const int ledPin = 13;
-const int middleValue = 512;
-const int numberOfSamples = 128;
+const int LED_PIN      = 13;
+const int MIDDLE_VALUE = 512;
+const int SAMPLE_COUNT = 128;
+const int AVG_OVER     = 16;
+const int THRESHOLD    = 400;
 
 int sample;
 long signal;
 long averageReading;
-
 long runningAverage = 0;
-const int averagedOver = 16;
-
-const int threshold = 400;
 
 void setup() {
-  pinMode(ledPin, OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
   Serial.begin(9600);
 }
 
 void loop() {
   long sumOfSquares = 0;
-  for (int i=0; i < numberOfSamples; i++) {
+
+  for (int i=0; i < SAMPLE_COUNT; i++) {
     sample = analogRead(0);
-    signal = (sample - middleValue);
+    signal = (sample - MIDDLE_VALUE);
     signal *= signal;
     sumOfSquares += signal;
   }
-  averageReading = sumOfSquares / numberOfSamples;
-  runningAverage = (((averagedOver - 1) *runningAverage)+averageReading)/averagedOver;
 
-  if (runningAverage > threshold) {
-    digitalWrite(ledPin, HIGH);
+  averageReading = sumOfSquares / SAMPLE_COUNT;
+  runningAverage = (((AVG_OVER - 1) *runningAverage)+averageReading)/AVG_OVER;
+
+  if (runningAverage > THRESHOLD) {
+    digitalWrite(LED_PIN, HIGH);
   } else {
-    digitalWrite(ledPin, LOW);
+    digitalWrite(LED_PIN, LOW);
   }
   Serial.println(runningAverage);
 }

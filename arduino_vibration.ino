@@ -2,20 +2,20 @@
 // arduino_vibration.ino
 // Description: Arduino Piezo Sensor Node (vibration)
 
-const int sensorPin = 0;
-const int ledPin = 13;
+const int PIEZO_PIN = 0;
+const int LED_PIN   = 13;
 const int THRESHOLD = 100;
 
 void setup() {
-  pinMode(ledPin, OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
 }
 
 void loop() {
-  int val = analogRead(sensorPin);
+  int val = analogRead(PIEZO_PIN);
   if (val >= THRESHOLD) {
-    digitalWrite(ledPin, HIGH);
+    digitalWrite(LED_PIN, HIGH);
     delay(100);
   } else {
-    digitalWrite(ledPin, LOW);
+    digitalWrite(LED_PIN, LOW);
   }
 }

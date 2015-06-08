@@ -2,16 +2,17 @@
 // arduino_fade.ino
 // Description: Fade an LED
 
-int ledPin = 9;
-int brightness = 0;
+const int LED_PIN = 9;
+
+int brightness  = 0;
 int fade_effect = 5;
 
 void setup() {
-  pinMode(ledPin, OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
 }
 
 void loop() {
-  analogWrite(ledPin, brightness);
+  analogWrite(LED_PIN, brightness);
 
   brightness = brightness + fade_effect;
 

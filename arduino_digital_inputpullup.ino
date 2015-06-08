@@ -2,25 +2,25 @@
 // arduino_digital_inputpullup.ino
 // Description: demonstrate use of pinMode(INPUT_PULLUP)
 
-const int pushButtonPin = 2;
-const int ledPin = 13;
+const int BUTTON_PIN = 2;
+const int LED_PIN    = 13;
 
 void setup() {
   Serial.begin(9600);
 
-  pinMode(pushButtonPin, INPUT_PULLUP);
-  pinMode(ledPin, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(LED_PIN, OUTPUT);
 }
 
 void loop() {
-  int sensorVal = digitalRead(pushButtonPin);
+  int sensorVal = digitalRead(BUTTON_PIN);
 
   Serial.println(sensorVal);
 
   // Pullup mode means the pushbutton's logic is inverted
   if (sensorVal == HIGH) {
-    digitalWrite(ledPin, LOW);
+    digitalWrite(LED_PIN, LOW);
   } else {
-    digitalWrite(ledPin, HIGH);
+    digitalWrite(LED_PIN, HIGH);
   }
 }

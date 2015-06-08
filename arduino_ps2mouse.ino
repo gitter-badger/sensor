@@ -5,26 +5,24 @@
 #define WProgram.h Arduino.h
 #include <ps2.h>
 
-const int dataPin = 5;
-const int clockPin = 6;
+const int DATA_PIN    = 5;
+const int CLOCK_PIN   = 6;
+const int X_LED_PIN   = 9;
+const int Y_LED_PIN   = 11;
+const int MOUSE_RANGE = 255;
 
-const int xLedPin = 9;
-const int yLedPin = 11;
-
-const int mouseRange = 255;
+const byte REQUEST_DATA = 0xeb;
 
 char x;
 char y;
 byte status;
 
-int xPosition = 0;
-int yPosition = 0;
+int xPosition   = 0;
+int yPosition   = 0;
 int xBrightness = 0;
 int yBrightness = 0;
 
-const byte REQUEST_DATA = 0xeb;
-
-PS2 mouse(clockPin, dataPin);
+PS2 mouse(CLOCK_PIN, DATA_PIN);
 
 void setup() {
   mouseBegin();
@@ -45,13 +43,13 @@ void loop() {
   y = mouse.read();
   if (x!= 0 || y != 0) {
     xPosition = xPosition + x;
-    xPosition = constrain(xPosition, -mouseRange, mouseRange);
+    xPosition = constrain(xPosition, -MOUSE_RANGE, MOUSE_RANGE);
 
-    xBrightness = map(xPosition, -mouseRange, mouseRange, 0, 255);
-    analogWrite(xLedPin, xBrightness);
+    xBrightness = map(xPosition, -MOUSE_RANGE, MOUSE_RANGE, 0, 255);
+    analogWrite(X_LED_PIN, xBrightness);
 
-    yPosition = constrain(yPosition + y, -mouseRange, mouseRange);
-    yBrightness = map(yPosition, -mouseRange, mouseRange, 0, 255);
+    yPosition = constrain(yPosition + y, -MOUSE_RANGE, MOUSE_RANGE);
+    yBrightness = map(yPosition, -MOUSE_RANGE, MOUSE_RANGE, 0, 255);
     analogWrite(yLedPen, yBrightness);
   }
 }

@@ -2,34 +2,35 @@
 // arduino_parralax.ino
 // Description: Arduino Parallax PING Sensor Node (distance)
 
-const int pingPin = 5;
-const int ledPin = 13;
+const int PING_PIN = 5;
+const int LED_PIN  = 13;
 
 void setup() {
   Serial.begin(9600);
-  pinMode(ledPin, OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
 }
 
 void loop() {
-  int cm = ping(pingPin);
+  int cm = ping(PING_PIN);
+
   Serial.println(cm);
-  digitalWrite(ledPin, HIGH);
+  digitalWrite(LED_PIN, HIGH);
   delay(cm * 10);
-  digitalWrite(ledPin, LOW);
+  digitalWrite(LED_PIN, LOW);
   delay(cm * 10);
 }
 
-int ping(int pingPin) {
+int ping(int PING_PIN) {
   long duration, cm;
 
-  pinMode(pingPin, OUTPUT);
-  digitalWrite(pingPin, LOW);
+  pinMode(PING_PIN, OUTPUT);
+  digitalWrite(PING_PIN, LOW);
   delayMicroseconds(2);
-  digitalWrite(pingPin, HIGH);
+  digitalWrite(PING_PIN, HIGH);
   delayMicroseconds(5);
-  digitalWrite(pingPin, LOW);
+  digitalWrite(PING_PIN, LOW);
 
-  pinmode(pingPin, INPUT);
+  pinmode(PING_PIN, INPUT);
   duration = pulseIn(pingpin, HIGH);
 
   cm = microsecondsToCentimeters(duration);

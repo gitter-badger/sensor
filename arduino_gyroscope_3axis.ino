@@ -6,17 +6,17 @@
 
 const int itgAddress = 0x69;
 
-const byte SMPLRT_DIV = 0x15;
-const byte DLPF_FS = 0x16;
-const byte INT_CFG = 0x17;
-const byte PWR_MGM = 0x3E;
+const byte SMPLRT_DIV     = 0x15;
+const byte DLPF_FS        = 0x16;
+const byte INT_CFG        = 0x17;
+const byte PWR_MGM        = 0x3E;
 const byte GYRO_X_ADDRESS = 0x1D;
 const byte GYRO_Y_ADDRESS = 0x1F;
 const byte GYRO_Z_ADDRESS = 0x21;
 
-const byte DLPF_CFG_0 = 0x1;
-const byte DLPF_CFG_1 = 0x2;
-const byte DLPF_CFG_2 = 0x4;
+const byte DLPF_CFG_0    = 0x1;
+const byte DLPF_CFG_1    = 0x2;
+const byte DLPF_CFG_2    = 0x4;
 const byte DLPF_FS_SEL_0 = 0x8;
 const byte DLPF_FS_SEL_1 = 0x10;
 

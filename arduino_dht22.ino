@@ -1,6 +1,6 @@
 //
 // arduino_dth22.ino
-// Description: Data Node using Arduino DHT22 Sensor and Ethernet to MySQL
+// Description: Data Node using DHT22 Sensor, Ethernet, and MySQL
 
 #include <SPI.h>
 #include <Ethernet.h>
@@ -10,7 +10,7 @@
 
 byte mac_addr[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 IPAddress server_addr(10, 0, 0, 24);
-char user[] = "root";
+char user[]     = "root";
 char password[] = "secret";
 
 Connector my_conn;

@@ -2,20 +2,21 @@
 // arduino_pir.ino
 // Description: Arduino Passive Infrared (PIR) Sensor Node
 
-const int ledPin = 13
-const int inputPin = 2;
+const int LED_PIN = 13
+const int PIR_PIN = 2;
 
 void setup() {
-  pinMode(ledPin, OUTPUT);
-  pinMode(inputpin, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(PIR_PIN, INPUT);
 }
 
 void loop() {
-  int val = digitalRead(inputPin);
+  int val = digitalRead(PIR_PIN);
+
   if (val == HIGH) {
-    digitalWrite(ledPin, HIGH);
+    digitalWrite(LED_PIN, HIGH);
     delay(500);
-    digitalWrite(ledpPin, LOW);
+    digitalWrite(LED_PIN, LOW);
   }
 }
 

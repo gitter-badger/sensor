@@ -1,6 +1,6 @@
 //
 // arduino_gsm_irrigation.ino
-// Description: Manipulate pin state with GSM communication
+// Description: Manipulate pin state using GSM communication
 
 #include "SIM900.h"
 #include <SoftwareSerial.h>
@@ -10,7 +10,7 @@
 CallGSM call;
 SMSGSM sms;
 
-word nextMillis = 0;
+word nextMillis    = 0;
 word nextCallCheck = 0;
 
 // Off-limits pins: 2, 3, 8, 9

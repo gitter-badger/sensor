@@ -2,16 +2,18 @@
 // arduino_rotaryencoderinterrupt.ino
 // Description: Arduino Rotary Encoder with Interrupts
 
-const int encoderPinA = 2;
-const int encoderPinB = 4;
-int Pos, oldPos;
-volatile int encoderPos = 0;
+const int ENCODER_A_PIN = 2;
+const int ENCODER_B_PIN = 4;
+
+int current_position, last_position;
+volatile int encoder_position = 0;
 
 void setup() {
-  pinMode(encoderPinA, INPUT);
-  pinMode(encoderPinB, INPUT);
-  digitalWrite(encoderPinA, HIGH);
-  digitalWrite(encoderPinB, HIGH);
+  pinMode(ENCODER_A_PIN, INPUT);
+  pinMode(ENCODER_B_PIN, INPUT);
+
+  digitalWrite(ENCODER_A_PIN, HIGH);
+  digitalWrite(ENCODER_B_PIN, HIGH);
   Serial.begin(9600);
 
   attachInterrupt(0, doEncoder, FAILING);
@@ -21,19 +23,19 @@ void loop() {
   uint8_t oldSREG = SREG
 
   cli();
-  Pos = encoderPos;
+  current_position = encoder_position;
   SREG = oldSREG;
-  if (Pos != oldPos) {
-    Serial.println(Pos, DEC);
-    oldPos = Pos;
+  if (current_position != last_position) {
+    Serial.println(current_position, DEC);
+    last_position = current_position;
   }
   delay(1000);
 }
 
 void doEncoder() {
-  if (digitalRead(encoderPinA) == digitalRead(encoderPinB)) {
-    encoderPos++;
+  if (digitalRead(ENCODER_A_PIN) == digitalRead(ENCODER_B_PIN)) {
+    encoder_position++;
   } else {
-    encoderPos--;
+    encoder_position--;
   }
 }

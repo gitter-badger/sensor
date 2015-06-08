@@ -2,41 +2,42 @@
 // arduino_sequential_led.ino
 // Description: Arduino Sequential LED Switcher
 
-byte ledPin[] = {2, 3, 4, 5, 6, 7, 8, 9};
-int ledDelay;
+const byte LED_PIN[] = {2, 3, 4, 5, 6, 7, 8, 9};
+const int POT_PIN = 2;
+
+int led_delay;
 int direction = 1;
-int currentLED = 0;
-unsigned long changeTime;
-int potPin = 2;
+int current_led = 0;
+unsigned long change_time;
 
 void setup() {
   for (int x=0; x<10; x++) {
-    pinMode(ledPin[x], OUTPUT);
+    pinMode(LED_PIN[x], OUTPUT);
   }
-  changeTime = millis();
+  change_time = millis();
 }
 
 void loop() {
-  ledDelay = analogRead(potPin)
+  led_delay = analogRead(potPin)
 
-  if ((millis() - changeTime) > ledDelay) {
+  if ((millis() - change_time) > led_delay) {
     changeLED();
-    changeTime = millis();
+    change_time = millis();
   }
 }
 
 void changeLED() {
   for (int x=0; x<10; X++) {
-    digitalWrite(ledPin[x], LOW);
+    digitalWrite(LED_PIN[x], LOW);
   }
-  digitalWrite(ledPin[currentLED], HIGH);
+  digitalWrite(LED_PIN[current_led], HIGH);
 
-  curentLED += direction
+  current_led += direction
 
-  if (currentLED == 9) {
+  if (current_led == 9) {
     direction = -1;
   }
-  if (currentLED == 0) {
+  if (current_led == 0) {
     direction = 1;
   }
 }

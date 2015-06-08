@@ -1,22 +1,24 @@
 //
 // arduino_curtain_automation.ino
-// Description:
+// Description: Adjust curtains based on light and temperature
 
 #include <AFMotor.h>
 
-#define LIGHT_PIN 0
-#define LIGHT_THRESHOLD 800
-#define TEMP_PIN 5
-#define TEMP_THERSHOLD 72
-#define TEMP_VOLTAGE 5.0
-#define ONBOARD_LED 13
+const int LIGHT_PIN       = 0
+const int LIGHT_THRESHOLD = 800
 
-int curtain_state = 1;
-int light_status = 0;
+const int TEMP_PIN        = 5
+const int TEMP_THERSHOLD  = 72
+const float TEMP_VOLTAGE  = 5.0
+
+const int ONBOARD_LED     = 13
+
+int curtain_state  = 1;
+int light_status   = 0;
 double temp_status = 0;
 
 boolean daylight = true;
-boolean warm = false;
+boolean warm     = false;
 
 AF_Stepper motor(100, 2);
 

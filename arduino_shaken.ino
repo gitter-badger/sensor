@@ -2,30 +2,33 @@
 // arduino_shaken.ino
 // Description: Arduino Shaken
 
-const int tiltSensorPin = 2;
-const int ledPin = 13;
-int tiltSensorPreviousValue = 0;
-int tiltSensorCurrentValue = 0;
-long lastTimeMoved = 0;
-int shakeTime = 50;
+const int TILT_PIN  = 2;
+const int LED_PIN   = 13;
+const int THRESHOLD = 50;
+
+int prev_tilt    = 0;
+int current_tilt = 0;
+long modified_at = 0;
 
 void setup() {
-  pinMode(tiltSensorPin, INPUT);
-  digitalWrite(tiltSensorPin, HIGH);
-  pinMode(ledPin, OUTPUT);
+  pinMode(TILT_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+
+  digitalWrite(TILT_PIN, HIGH);
 }
 
 void loop() {
-  tiltSensorCurrentValue = digitalRead(tiltSensorPin);
-  if (tiltSensorPreviousValue != tiltSensorCurrentValue) {
-    lastTimeMoved = millis();
-    tiltSensorPreviousValue = tiltSensorCurrentValue;
+  current_tilt = digitalRead(TILT_PIN);
+
+  if (prev_tilt != current_tilt) {
+    modified_at = millis();
+    prev_tilt = current_tilt;
   }
 
-  if (millis() - lastTimeMoved < shaketime) {
-    digitalWrite(ledPin, HIGH);
+  if (millis() - modified_at < THRESHOLD) {
+    digitalWrite(LED_PIN, HIGH);
   } else {
-    digitalWrite(ledPin, LOW);
+    digitalWrite(LED_PIN, LOW);
   }
 }
 

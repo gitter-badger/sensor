@@ -2,22 +2,22 @@
 // arduino_pushbutton.ino
 // Description: On press of push button, power on LED
 
-const int buttonPin = 2;
-const int ledPin    = 13;
+const int BUTTON_PIN = 2;
+const int LED_PIN    = 13;
 
 int buttonState = 0;
 
 void setup() {
-  pinMode(ledPin, OUTPUT);
-  pinMode(buttonPin, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT);
 }
 
 void loop() {
-  buttonState = digitalRead(buttonPin);
+  buttonState = digitalRead(BUTTON_PIN);
 
   if (buttonState == HIGH) {
-    digitalWrite(ledPin, HIGH);
+    digitalWrite(LED_PIN, HIGH);
   } else {
-    digitalWrite(ledPin, LOW);
+    digitalWrite(LED_PIN, LOW);
   }
 }

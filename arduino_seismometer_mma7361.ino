@@ -2,14 +2,14 @@
 // arduino_seismometer_mma7361.ino
 // Description: Arduino Seismometer using MMA7361
 
-int ST = 6;
-int GSEL = 7;
-int ZeroGD = 8;
-int SLP = 9;
+const int X_AXIS_PIN = 2;
+const int Y_AXIS_PIN = 1;
+const int Z_AXIS_PIN = 0;
 
-int Xaxis_pin = 2;
-int Yaxis_pin = 1;
-int Zaxis_pin = 0;
+const int ST     = 6;
+const int GSEL   = 7;
+const int ZeroGD = 8;
+const int SLP    = 9;
 
 void setup() {
   Serial.begin(57600);
@@ -21,7 +21,7 @@ void setup() {
 
 void loop() {
   char temp[15];
-  sprintf(temp, "%d,%d,%d", analogRead(Xaxis_pin), analogRead(Zaxis_pin));
+  sprintf(temp, "%d,%d,%d", analogRead(X_AXIS_PIN), analogRead(Z_AXIS_PIN));
   Serial.println(temp);
   delay(5);
 }
