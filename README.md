@@ -1,4 +1,6 @@
 # Welcome to Sensor
+
+[![Join the chat at https://gitter.im/wurde/sensor](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wurde/sensor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Stories in Ready](https://badge.waffle.io/wurde/sensor.svg?label=ready&title=Ready)](http://waffle.io/wurde/sensor)
 
 Sensor is a set of phenomenon interfaces.
