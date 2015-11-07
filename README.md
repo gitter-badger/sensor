@@ -1,5 +1,7 @@
-# Welcome to Sensor <br/><small>we are phenomenon interface.</small>
+# Welcome to Sensor
 [![Stories in Ready](https://badge.waffle.io/wurde/sensor.svg?label=ready&title=Ready)](http://waffle.io/wurde/sensor)
+
+Sensor is a set of phenomenon interfaces.
 
 ## Contribute to the Source
 
